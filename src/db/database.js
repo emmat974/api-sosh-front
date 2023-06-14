@@ -1,0 +1,14 @@
+const mysql = require('promise-mysql')
+
+const connection = mysql.createConnection({
+    host: process.env.SQL_HOST,
+    user: process.env.SQL_USER,
+    password: process.env.SQL_PASSWORD,
+    database: process.env.SQL_DATABASE
+})
+
+function getConnection() {
+    return connection
+}
+
+module.exports = { getConnection }
