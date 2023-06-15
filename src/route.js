@@ -9,6 +9,7 @@ const facturationController = require('./controllers/facturationController')
 const consommationController = require('./controllers/consommationController')
 const optionController = require('./controllers/optionController')
 const paiementController = require('./controllers/paiementController')
+const clientController = require('./controllers/clientController')
 
 route.get('/', (req, res) => {
     res.send({
@@ -23,13 +24,16 @@ route.get('/forfaits', authMiddleware, forfaitController.get)
 route.get('/facturations', authMiddleware, facturationController.get)
 
 //Consommation
-route.get('/consommations', authMiddleware, consommationController.get)
+route.get('/consommations/:id', authMiddleware, consommationController.get)
 
 //Option
-route.get('/options', authMiddleware, optionController.get)
+route.get('/options/:id', authMiddleware, optionController.get)
 
 //Paiement
 route.get('/paiement', authMiddleware, paiementController.get)
+
+//Client
+route.get("/clients", authMiddleware, clientController.get)
 
 // Authentification
 route.post('/login', login)

@@ -1,9 +1,9 @@
-const option = require('../models/options')
+const client = require('../models/clients')
 
-const optionController = {
+const clientController = {
     get: (req, res) => {
         try {
-            option.get(req.id).then((result) => {
+            client.get(req.user.id).then((result) => {
                 res.status(200).json(result[0])
             })
         } catch (err) {
@@ -12,4 +12,4 @@ const optionController = {
     }
 }
 
-module.exports = optionController
+module.exports = clientController

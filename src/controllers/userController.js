@@ -12,6 +12,9 @@ const login = async (req, res) => {
                 res.status(401).json({ message: `L'adresse email ou le mot de passe est incorrect` })
                 return;
             }
+        }).catch(() => {
+            res.status(401).json({ message: `L'adresse email ou le mot de passe est incorrect` })
+            return;
         })
     } catch (err) {
         console.error(err)
